@@ -1,3 +1,15 @@
+#27/02/2025
+# Installing packages
+# CRAN
+install.packages("terra")
+library(terra)
+
+install.packages("devtools")
+library(devtools)
+
+install_github("ducciorocchini/imageRy")
+library(imageRy)
+
 #04/03/2025
 b2=im.import("sentinel.dolomites.b2.tif")
 cl = colorRampPalette(c("black","darkgrey","lightgrey"))(100)
