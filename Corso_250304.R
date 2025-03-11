@@ -12,6 +12,8 @@ library(devtools)
 library(viridis)
 library(imageRy)
 
+im.list()
+
 #04/03/2025
 #cercare ImageRy colors su google
 b2=im.import("sentinel.dolomites.b2.tif")
