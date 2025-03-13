@@ -47,4 +47,40 @@ plot(mato2006[[1]], col=inferno(100))
 # valutare lo stato delle piante
 # Tree:           NIR=255, red=0, DVI=NIR-red=255
 # Stressed tree:  NIR=100, red=20, DVI=NIR-red=80
+
+im.multiframe(1,2)
+plot(mato1992)
+plot(mato2006)
+
+# 1 = NIR
+# 2 = red
+# 3 = green
+
+dvi1992 = mato1992[[1]] - mato1992[[2]] # NIR - red
+plot(dvi1992)
+
+# range DVI
+# maximum: NIR - red = 225 - 0 = 255
+# minimum: NIR - red = 0 - 255 = -255
+
+plot(dvi1992, col=inferno(100))
+
+#calculate DVI for 2006
+dvi2006 = mato2006[[1]] - mato2006[[2]] # NIR - red
+plot(dvi2006)
+plot(dvi2006, col=inferno(100))
  
+im.multiframe(1,2)
+plot(dvi1992, col=inferno(100))
+plot(dvi2006, col=inferno(100))
+
+# Different radiometric resolutions
+# DVI 8 bit : range (valori possibili da 0 a 255)
+# max: NIR - red = 255-0 = 255
+# min: NIR - red = 0-255 = -255
+
+# DVI 4 bit : range (valori da 0 a 15)
+# max: NIR - red = 15-0 = 15
+# min: NIR - red = 0-15 = -15
+
+
