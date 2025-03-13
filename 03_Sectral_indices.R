@@ -83,4 +83,43 @@ plot(dvi2006, col=inferno(100))
 # max: NIR - red = 15-0 = 15
 # min: NIR - red = 0-15 = -15
 
+# standardizazione = NVDI
+# NDVI 8 bit : range (0 - 255)
+# max: (NIR- red)/(NIR + red) = (255 - 0)/(255 + 0) = 1
+# min: (NIR- red)/(NIR + red) = (0 - 255)/(0 +255) = -1
+
+# NDVI 4 bit : range (0 - 15)
+# max: (NIR- red)/(NIR + red) = (15 - 0)/(15 + 0) = 1
+# min: (NIR- red)/(NIR + red) = (0 - 15)/(0 + 15) = -1
+
+# siginifica che non importa il range di valori, qualsiasi la resoluzione dell'imagine
+
+ndvi1992 = dvi1992/(mato1992[[1]] + mato1992[[2]])
+ndvi2006 = dvi2006/(mato2006[[1]] + mato2006[[2]])
+im.multiframe(1,2)
+plot(ndvi1992, col=inferno(100))
+plot(ndvi2006, col=inferno(100))
+
+# con ImageRy, automatico
+im.dvi
+dvi1992auto = im.dvi(mato1992, 1, 2)
+dvi2006auto = im.dvi(mato2006, 1, 2)
+plot(dvi1992auto)
+plot(dvi2006auto)
+
+im.ndvi
+ndvi1992auto = im.ndvi(mato1992, 1, 2)
+ndvi2006auto = im.ndvi(mato2006, 1, 2)
+plot(ndvi1992auto)
+plot(ndvi2006auto)
+
+im.multiframe(1,2)
+plot(ndvi1992)
+plot(ndvi1992auto)
+
+
+
+                             
+                         
+
 
