@@ -18,3 +18,8 @@ gr_dif = gr[[1]] - gr[[4]]
 ```
 
 The output will be something like: 
+
+<img src="/Pics/green_dif.jpeg" width=100% />
+
+<img src="../Pics/green_dif.jpeg" width=100% />
+.. per salire di un livello di cartello (non necessario nel mio caso)
