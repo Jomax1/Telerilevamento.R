@@ -69,3 +69,48 @@ dev.off()
 # Ridgeline plots
 gr = im.import("greenland")
 im.ridgeline(gr, scale=1)
+# prende tutti i pixels di un anno e ne calcola la frequenza
+# Il dataset rimane più o meno stabile
+# cambiamo la scala
+im.ridgeline(gr, scale=2)
+?im.ridgeline #apre il manuale della funzione ("option" è stato modificato in "palette")
+im.ridgeline(gr, scale=2, palette="inferno")
+im.ridgeline(gr, scale=3, palette="inferno")
+
+# exercise : import the NDVI data from sentinel
+sent_NDVI = im.import("Sentinel2_NDVI")
+im.ridgeline(sent_NDVI, scale=2)
+
+# changing names
+# sources :  Sentinel2_NDVI_2020-02-21.tif                   
+#            Sentinel2_NDVI_2020-05-21.tif                     
+#            Sentinel2_NDVI_2020-08-01.tif                     
+#            Sentinel2_NDVI_2020-11-27.tif 
+
+names(sent_NDVI) = c("02_Feb", "05_May", "08_Aug", "11_Nov")
+im.ridgeline(sent_NDVI, scale=2)
+im.ridgeline(sent_NDVI, scale=2, palette="mako")
+
+# Feb: NDVI più bassi perchè inverno
+# Maggio, Agosto: valori più alti
+# Nov: ritorno ai valori d'inverno
+
+pairs(sent_NDVI)
+plot(sent_NDVI[[1]], sent_NDVI[[2]])
+# aggiungiamo una linea
+# y = x, may = y, feb = s
+# y = a + bx
+# a=0, b=1
+# abline(a, b
+abline(0,1, col="red")
+# sistemiamo i range di feb e maggio
+
+plot(sent_NDVI[[1]], sent_NDVI[[2]], xlim=c(-0.3, 0.9), ylim=c(-0.3, 0.9))
+abline(0,1, col="red")
+
+
+im.multiframe(1,3)
+plot(sent_NDVI[[1]])
+plot(sent_NDVI[[2]])
+plot(sent_NDVI[[1]], sent_NDVI[[2]], xlim=c(-0.3, 0.9), ylim=c(-0.3, 0.9))
+abline(0,1, col="red")
