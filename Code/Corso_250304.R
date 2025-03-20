@@ -6,7 +6,7 @@ install.packages("devtools")
 install.packages("viridis") #colori per daltonici
 install_github("ducciorocchini/imageRy")
 
-install.packages("ggridges") # this is needed to reate ridgeline plots
+install.packages("ggridges") # this is needed to reate ridgeline plots, scegliere città Padova, che è la più vicina a noi
 
 library(terra)
 library(devtools)
