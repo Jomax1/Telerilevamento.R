@@ -65,3 +65,7 @@ jpeg("green_dif.jpeg")
 plot(gr_dif)
 dev.off()
 
+
+# Ridgeline plots
+gr = im.import("greenland")
+im.ridgeline(gr, scale=1)
