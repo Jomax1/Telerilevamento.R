@@ -6,6 +6,7 @@ library(ggridges) # for ridgeline plots
 library(ggplot2) # for ridgeline plots
 library(viridis) 
 
+# Listing the data
 im.list()
 
 # tasso di ossidi di azoto durante il lockdown
