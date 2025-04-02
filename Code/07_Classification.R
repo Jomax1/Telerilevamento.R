@@ -21,5 +21,26 @@ mato2006c = im.classify(mato2006, num_clusters=2)
 # class 1 = forest
 # class 2 = human
 
+f1992 = freq(mato1992c)
+f1992 
+tot1992 = ncell(mato1992c)
+perc1992 = f1992 / tot * 100
+perc1992
+
+# human 1992 = 17%
+# forest 1992 = 83%
+
+perc2006 = freq(mato2006c) / ncell(mato2006c) * 100
+perc2006
+
+# forest 2006 = 45%
+# human 2006 = 54%
+
+
+
+
+
+
+
 
 
