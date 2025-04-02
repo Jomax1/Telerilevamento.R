@@ -2,6 +2,10 @@
 
 library(terra)
 library(imageRy)
+library(ggplot2)
+library(patchwork)
+
+install.packages("patchwork")
 
 im.list()
 mato1992 = im.import("matogrosso_l5_1992219_lrg.jpg")
@@ -34,9 +38,37 @@ perc2006 = freq(mato2006c) / ncell(mato2006c) * 100
 perc2006
 
 # forest 2006 = 45%
-# human 2006 = 54%
+# human 2006 = 55%
 
+class = c("Forest", "Human")
+y1992 = c(83, 17)
+y2006 = c(45, 55)
+tab = data.frame(class, y1992, y2006)
+tab
 
+# grafici con ggplot2
+p1 = ggplot(tab, aes(x=class, y=y1992, color=class)) + # struttura del grafico
+  geom_bar(stat="identity", fill="white") + # grafico bar
+  ylim(c(0, 100)) # associare la stessa scala y
+
+p2 = ggplot(tab, aes(x=class, y=y2006, color=class)) + # struttura del grafico
+  geom_bar(stat="identity", fill="white") + # grafico bar
+  ylim(c(0, 100)) # associare la stessa scala y
+
+p1 + p2 
+
+# l'uno sopra l'altro
+p1 = ggplot(tab, aes(x=class, y=y1992, color=class)) + # struttura del grafico
+  geom_bar(stat="identity", fill="white") + # grafico bar
+  ylim(c(0, 100)) + # associare la stessa scala y
+  coord_flip() # cambiare il senso
+
+p2 = ggplot(tab, aes(x=class, y=y2006, color=class)) + # struttura del grafico
+  geom_bar(stat="identity", fill="white") + # grafico bar
+  ylim(c(0, 100)) + # associare la stessa scala y
+  coord_flip() # cambiare il senso
+
+p1 / p2 
 
 
 
