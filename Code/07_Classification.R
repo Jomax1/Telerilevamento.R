@@ -13,7 +13,13 @@ mato2006 = flip(mato2006)
 plot(mato2006)
 
 #classificare
-mato1992c = im.classify(mato1992, num_clusters=2)
+mato1992c = im.classify(mato1992, num_clusters=2) #colore al contrario del prof, a secondo di quale pixel parte per prima
+# class 1 = human
+# class 2 = forest
+
 mato2006c = im.classify(mato2006, num_clusters=2)
+# class 1 = forest
+# class 2 = human
+
 
 
