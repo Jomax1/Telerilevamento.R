@@ -80,7 +80,38 @@ Solar_c = im.classify(Solar, num_clusters=3)
 plot(Solar_c)
 
 # plot the original image beside the classify image
-Solar / Solar_c
+im.multiframe(2,1)
+plot(Solar)
+plot(Solar_c)
+
+# 3 = scuro = low energy
+# 1 = medio = medium energy
+# 2 = chiaro = high energy
+
+Solar_cs = subst(Solar_c, c(3, 1, 2), c("c1_low", "c2_medium", "c3_high")) # pachetto terra (mette in ordine alfabetico)
+dev.of()
+plot(Solar_cs)
+
+# Calculate the % of the Sun energy with a unique line of code
+Solar_p = freq(Solar_cs)$count * 100 / ncell(Solar_cs) # x100 solo sulla terza colonna
+Solar_p
+# 37.33349 41.44658 21.21993
+# 37 41 21
+
+# create dataframe
+class = c("c1_low", "c2_medium", "c3_high") #si potrebbe andare a ricuperare direttamente i dati di Solar_cs ?
+perc = c(37,41,21)
+tabsol = data.frame(class, perc)
+
+# final ggplot
+ggplot(tabsol, aes(x=class, y=perc, fill=class, color=class)) +
+  geom_bar(stat="identity")
+  # ylim(c(0, 100)) +
+  coord_flip() + 
+  scale_y_reverse()
+
+
+
 
 
 
