@@ -70,7 +70,17 @@ p2 = ggplot(tab, aes(x=class, y=y2006, color=class)) + # struttura del grafico
 
 p1 / p2 
 
+# si può anche usare "fill=class"
 
+#____ solar Orbiter
+Solar = im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
+
+# exercise : classify the image in 3 classes
+Solar_c = im.classify(Solar, num_clusters=3)
+plot(Solar_c)
+
+# plot the original image beside the classify image
+Solar / Solar_c
 
 
 
