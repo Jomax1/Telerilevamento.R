@@ -1,8 +1,13 @@
 # Code for calculating spatial variability
+install.packages("RStoolbox")
 
 library(terra)
 library(imageRy)
 library(viridis)
+library(ggplot2)
+library(patchwork)
+library(RStoolbox)
+
 
 # Standard deviation
 # 23, 22, 23, 49
@@ -47,9 +52,31 @@ plot(sent_nir, col=inferno(100))
 
 # focal function
 # Calculate focal ("moving window") values for each cell.
-sd3 = focal(sent_nir, w=c(3,3), fun=sd)
+stand_dev_3 = focal(sent_nir, w=c(3,3), fun=sd)
 
 im.multiframe(1,2)
 im.plotRGB(sent, r=1, g=2, b=3)
-plot(sd3)
+plot(stand_dev_3)
+
+# Calculate standard deviation with the nir band with moving window of 5 pixels
+stand_dev_5 = focal(sent_nir, w=c(5,5), fun=sd)
+im.multiframe(1,2)
+im.plotRGB(sent, r=1, g=2, b=3)
+plot(stand_dev_5)
+
+# use ggplot to plot the standard deviation
+im.ggplot(stand_dev_3)
+
+# plot the 2 stand dev maps (3 and 5) one beside another with ggplot
+p1 = im.ggplot(stand_dev_3)
+p2 = im.ggplot(stand_dev_5)
+p1 + p2
+
+# with ggplot, plot the original sent in RGB (ggRGB) together with the stand dev 3 and 5 pixels
+# serve RStoolbox
+p3 = ggRGB(sent, r=1, g=2, b=3)
+p3 + p1 + p2
+#con ggplot le imagini vengono tutte uguali anche con la legenda
+
+
 
