@@ -15,7 +15,7 @@ library(viridis) # in order to plot images with different viridis color ramp pal
 Setting the working directory and importing the data:
 
 ``` r
-setwd("~/Desktop/")
+setwd("C:/Users/maxime.joly/Desktop/Bologna/UNIVERSITA_BOLOGNA/TELERILEVAMENTO/Test_Exam") # for Windows users change the back slash \ to slash /
 fires = rast("fires.jpg")
 plot(fires)
 fires = flip(fires)
